@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smarajit Paul Choudhury</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0f0f0f;
+      --grey-900: #1a1a1a;
+      --grey-700: #444;
+      --grey-500: #6b7280;
+      --grey-300: #d1d5db;
+      --grey-100: #f3f4f6;
+      --grey-50: #f9fafb;
+      --white: #ffffff;
+      --accent: #1d4ed8;
+      --accent-light: #eff6ff;
+      --radius: 12px;
+      --font-body: 'Inter', sans-serif;
+      --font-display: 'Playfair Display', serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--grey-900);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--grey-300);
+    }
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--black);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      color: var(--grey-700);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section { padding: 80px 0; }
+    section + section { border-top: 1px solid var(--grey-100); }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 4vw, 36px);
+      color: var(--black);
+      line-height: 1.2;
+      margin-bottom: 40px;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 120px 0 100px;
+      background: var(--white);
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--grey-500);
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 2px;
+      background: var(--accent);
+      display: inline-block;
+    }
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 6vw, 68px);
+      color: var(--black);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .hero-subtitle {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: var(--grey-700);
+      font-weight: 400;
+      margin-bottom: 16px;
+      max-width: 560px;
+    }
+    .hero-location {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--grey-500);
+      margin-bottom: 40px;
+    }
+    .hero-location svg { flex-shrink: 0; }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: #1e40af; transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--grey-700);
+      border: 1.5px solid var(--grey-300);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+    /* ── ABOUT ── */
+    .about-text {
+      font-size: 18px;
+      color: var(--grey-700);
+      line-height: 1.8;
+      max-width: 660px;
+    }
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 28px;
+    }
+    .skill-tag {
+      background: var(--grey-100);
+      color: var(--grey-700);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 100px;
+    }
+
+    /* ── EXPERIENCE ── */
+    .timeline { position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 6px;
+      bottom: 0;
+      width: 1px;
+      background: var(--grey-300);
+    }
+    .timeline-item {
+      display: flex;
+      gap: 28px;
+      padding-bottom: 36px;
+      position: relative;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot {
+      flex-shrink: 0;
+      width: 31px;
+      height: 31px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--grey-300);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      margin-top: 2px;
+    }
+    .timeline-item.active .timeline-dot {
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+    .timeline-dot svg { color: var(--grey-500); }
+    .timeline-item.active .timeline-dot svg { color: var(--accent); }
+    .timeline-content { flex: 1; }
+    .timeline-company {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .timeline-role {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+    .timeline-meta {
+      font-size: 13px;
+      color: var(--grey-500);
+      margin-bottom: 6px;
+    }
+    .timeline-location {
+      font-size: 13px;
+      color: var(--grey-500);
+    }
+
+    /* ── EDUCATION ── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .edu-card {
+      background: var(--grey-50);
+      border: 1px solid var(--grey-100);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .edu-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .edu-degree {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+    .edu-school {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .edu-years {
+      font-size: 13px;
+      color: var(--grey-500);
+    }
+    .edu-note {
+      font-size: 13px;
+      color: var(--grey-700);
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-top: 10px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* ── RESEARCH ── */
+    .research-grid {
+      display: grid;
+      gap: 20px;
+    }
+    .research-card {
+      background: var(--white);
+      border: 1px solid var(--grey-100);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .research-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 20px rgba(29,78,216,0.06);
+    }
+    .research-tag {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .research-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .research-venue {
+      font-size: 13px;
+      color: var(--grey-500);
+      margin-bottom: 10px;
+    }
+    .research-desc {
+      font-size: 14px;
+      color: var(--grey-700);
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      color: var(--grey-300);
+      padding: 56px 0;
+    }
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: gap;
+      gap: 24px;
+    }
+    .footer-name {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .footer-tagline {
+      font-size: 13px;
+      color: var(--grey-500);
+    }
+    .footer-links {
+      display: flex;
+      gap: 16px;
+    }
+    .footer-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--grey-300);
+      text-decoration: none;
+      padding: 8px 16px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .footer-link:hover { border-color: var(--accent); color: var(--white); }
+    .footer-copy {
+      text-align: center;
+      font-size: 12px;
+      color: var(--grey-500);
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid #222;
+    }
+
+    /* ── HERO PHOTO ── */
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 64px;
+    }
+    .hero-text { flex: 1; }
+    .hero-photo-wrap {
+      flex-shrink: 0;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--grey-100);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+    }
+    .hero-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .hero-inner { flex-direction: column-reverse; gap: 32px; align-items: flex-start; }
+      .hero-photo-wrap { width: 160px; height: 160px; }
+    }
+    @media (max-width: 640px) {
+      section { padding: 60px 0; }
+      #hero { padding: 80px 0 60px; }
+      .nav-links { display: none; }
+      .timeline::before { left: 14px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">SPC</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-eyebrow">Economics &amp; Data Science</div>
+        <h1 class="hero-name">Smarajit<br />Paul Choudhury</h1>
+        <p class="hero-subtitle">Senior Economics Analyst at Mastercard Economics Institute · UCB MFE '28</p>
+        <div class="hero-location">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          New York City Metropolitan Area
+        </div>
+        <div class="hero-actions">
+          <a href="https://www.linkedin.com/in/smarajitpaulchoudhury/" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn Profile
+          </a>
+          <a href="#research" class="btn btn-outline">
+            View Research
+          </a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <img src="photo.jpg" alt="Smarajit Paul Choudhury" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <p class="section-label">About</p>
+    <h2 class="section-title">Where Data Meets Economics</h2>
+    <p class="about-text">
+      Experienced in working at the intersection of Data Science and Macroeconomics. Currently at the
+      <strong>Mastercard Economics Institute</strong> as a Senior Economics Analyst, producing research
+      that leverages Mastercard's unique, high-frequency transaction data to generate insights into
+      consumer behavior, business resilience, and macroeconomic dynamics — in collaboration with global
+      institutions including the <strong>World Bank</strong>.
+    </p>
+    <p class="about-text" style="margin-top:16px;">
+      Alongside my role at Mastercard, I am pursuing a <strong>Master's in Financial Engineering</strong>
+      at UC Berkeley's Haas School of Business, deepening my quantitative skills in data-driven
+      modeling and quantitative finance.
+    </p>
+    <div class="skills-grid">
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">R</span>
+      <span class="skill-tag">SQL</span>
+      <span class="skill-tag">JavaScript</span>
+      <span class="skill-tag">Tableau</span>
+      <span class="skill-tag">Machine Learning</span>
+      <span class="skill-tag">Econometrics</span>
+      <span class="skill-tag">Macroeconomics</span>
+      <span class="skill-tag">Financial Engineering</span>
+      <span class="skill-tag">Data Science</span>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <p class="section-label">Experience</p>
+    <h2 class="section-title">Career at Mastercard</h2>
+    <div class="timeline">
+
+      <div class="timeline-item active">
+        <div class="timeline-dot">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-company">Mastercard</div>
+          <div class="timeline-role">Senior Economics Analyst</div>
+          <div class="timeline-meta">Feb 2026 – Present · 4 mos</div>
+          <div class="timeline-location">Purchase, New York, United States · On-site</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"/></svg>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-company">Mastercard</div>
+          <div class="timeline-role">Senior Economics Analyst</div>
+          <div class="timeline-meta">Sep 2023 – Feb 2026 · 2 yrs 6 mos</div>
+          <div class="timeline-location">Gurugram, Haryana, India · On-site</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"/></svg>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-company">Mastercard</div>
+          <div class="timeline-role">Economics Analyst</div>
+          <div class="timeline-meta">Mar 2023 – Sep 2023 · 7 mos</div>
+          <div class="timeline-location">Gurugram, Haryana, India · Hybrid</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"/></svg>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-company">Mastercard</div>
+          <div class="timeline-role">Consultant</div>
+          <div class="timeline-meta">Feb 2022 – Mar 2023 · 1 yr 2 mos</div>
+          <div class="timeline-location">Gurugram, Haryana, India</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"/></svg>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-company">Mastercard</div>
+          <div class="timeline-role">Associate Analyst</div>
+          <div class="timeline-meta">Aug 2020 – Feb 2022 · 1 yr 7 mos</div>
+          <div class="timeline-location">Gurugram, Haryana, India</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <p class="section-label">Education</p>
+    <h2 class="section-title">Academic Background</h2>
+    <div class="edu-grid">
+
+      <div class="edu-card">
+        <div class="edu-degree">Master's in Financial Engineering</div>
+        <div class="edu-school">UC Berkeley, Haas School of Business</div>
+        <div class="edu-years">Mar 2026 – Mar 2028</div>
+        <p class="edu-note">Pursuing graduate studies in Financial Engineering and Quantitative Finance alongside my work at the Mastercard Economics Institute — deepening skills in data-driven modeling and quantitative finance applications.</p>
+        <span class="badge">In Progress</span>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-degree">Integrated Dual Degree — Engineering Physics</div>
+        <div class="edu-school">IIT (BHU) Varanasi</div>
+        <div class="edu-years">2015 – 2020</div>
+        <p class="edu-note">Masters researcher at the Laboratory of Sustainable Materials for Translational Research, Department of Physics. Secretary, Western Music Club (2017–18).</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <p class="section-label">Research &amp; Publications</p>
+    <h2 class="section-title">Selected Work</h2>
+    <div class="research-grid">
+
+      <div class="research-card">
+        <span class="research-tag">World Bank Collaboration</span>
+        <div class="research-title">Economic Impact of Hurricanes on Local Economies</div>
+        <div class="research-venue">Mastercard Economics Institute · with Leora Klapper, Mingxuan Fan &amp; Sumit Agarwal</div>
+        <p class="research-desc">Leveraged Mastercard's high-frequency transaction data to study how natural disasters affect local economies and the pace of recovery across sectors. Key findings: spending declines ~60% on the day of landfall; recovery takes ~2 weeks; restaurants and retail face the sharpest declines; merchants with stronger online presence show greater resilience.</p>
+      </div>
+
+      <div class="research-card">
+        <span class="research-tag">Small Business</span>
+        <div class="research-title">US Small Business Survival Rates During and After the Pandemic</div>
+        <div class="research-venue">Mastercard Economics Institute · with Roiana Reid &amp; Michelle Meyer</div>
+        <p class="research-desc">Analysis of business survival trends in the US, revealing that survival rates are well above pandemic lows, are higher for more mature businesses, and that omnichannel businesses exhibit the highest survival rates.</p>
+      </div>
+
+      <div class="research-card">
+        <span class="research-tag">Sports Economics</span>
+        <div class="research-title">The Ripple Effects of the ICC Cricket World Cup on the Indian Economy</div>
+        <div class="research-venue">Mastercard Economics Institute · Cricketonomics Series</div>
+        <p class="research-desc">Quantified the economic impact of cricket tournaments on India using hyperlocal transaction data. Hotels and restaurants in host cities such as Ahmedabad and Lucknow saw spend boosts of up to 36% around match days compared to equivalent non-game days.</p>
+      </div>
+
+      <div class="research-card">
+        <span class="research-tag">Publication</span>
+        <div class="research-title">Early Detection of Sepsis using Healthcare Data</div>
+        <div class="research-venue">SMST 2020 · Feb 23, 2020</div>
+        <p class="research-desc">Machine learning-based model for detecting sepsis up to 6 hours prior to clinical detection, achieving an AUC-ROC of 0.92 at 6 hours before actual organ failure.</p>
+      </div>
+
+      <div class="research-card">
+        <span class="research-tag">Publication</span>
+        <div class="research-title">In Situ Mechanistic Control of Plant-Derived Carbon Quantum Dots on the Synthesis of Gold Nanoparticles</div>
+        <div class="research-venue">Chemistry Select · Dec 12, 2019</div>
+        <p class="research-desc">Computational study modelling Carbon Quantum Dots to analyze their interactions with Gold Nanoparticles, contributing to nanomaterial-based drug delivery research.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER / CONTACT -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-name">Smarajit Paul Choudhury</div>
+      <div class="footer-tagline">Economics · Data Science · Financial Engineering</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/smarajitpaulchoudhury/" target="_blank" rel="noopener" class="footer-link">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="mailto:smarajit.pc@gmail.com" class="footer-link">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-copy">© 2026 Smarajit Paul Choudhury · New York City</div>
+  </div>
+</footer>
+
+</body>
+</html>
