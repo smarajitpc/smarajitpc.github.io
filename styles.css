@@ -338,6 +338,24 @@ section + section { border-top: 1px solid var(--grey-100); }
   color: var(--grey-700);
   line-height: 1.6;
 }
+.research-card-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 14px;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.research-card-link:hover {
+  background: var(--accent);
+  color: var(--white);
+  transform: translateY(-1px);
+}
 
 .projects-grid {
   display: grid;
