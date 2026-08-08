@@ -55,18 +55,6 @@
   </div>
 </section>
  
-<!-- TABS NAV -->
-<section id="tabs">
-  <div class="container">
-    <div class="tabs-nav">
-      <button class="tab-btn active" data-tab="about">About</button>
-      <button class="tab-btn" data-tab="experience">Experience &amp; Education</button>
-      <button class="tab-btn" data-tab="research">Research</button>
-      <button class="tab-btn" data-tab="projects">Projects</button>
-    </div>
-  </div>
-</section>
-
 <!-- ABOUT -->
 <section id="about">
   <div class="container">
@@ -313,7 +301,7 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  const buttons = document.querySelectorAll('.tab-btn');
+  const navLinks = document.querySelectorAll('.nav-links a');
   const sections = {
     about: document.getElementById('about'),
     experience: document.getElementById('experience'),
@@ -322,27 +310,35 @@ document.addEventListener('DOMContentLoaded', function () {
     projects: document.getElementById('projects')
   };
 
-  function showTab(tab) {
-    // show/hide sections; experience tab shows both experience + education
-    Object.keys(sections).forEach(key => {
-      const el = sections[key];
+  function showSection(key) {
+    Object.keys(sections).forEach(k => {
+      const el = sections[k];
       if (!el) return;
-      if (tab === 'experience') {
-        if (key === 'experience' || key === 'education') el.style.display = 'block'; else el.style.display = 'none';
+      if (key === 'experience') {
+        el.style.display = (k === 'experience' || k === 'education') ? 'block' : 'none';
       } else {
-        el.style.display = (key === tab) ? 'block' : 'none';
+        el.style.display = (k === key) ? 'block' : 'none';
       }
     });
-    buttons.forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
-    // update hash without scrolling
-    history.replaceState(null, '', '#' + tab);
+    history.replaceState(null, '', '#' + key);
   }
 
-  buttons.forEach(b => b.addEventListener('click', () => showTab(b.dataset.tab)));
+  navLinks.forEach(a => {
+    a.addEventListener('click', function (e) {
+      const href = this.getAttribute('href') || '';
+      if (!href.startsWith('#')) return; // external links behave normally
+      e.preventDefault();
+      const key = href.replace('#', '');
+      if (['about','experience','research','projects'].includes(key)) showSection(key);
+      // scroll to top of section container for accessibility
+      const el = document.getElementById(key);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
 
-  // initial tab from hash or default to about
-  const hash = (location.hash || '').replace('#','');
-  showTab(hash && ['about','experience','research','projects'].includes(hash) ? hash : 'about');
+  // initial view from hash
+  const initial = (location.hash || '').replace('#','');
+  showSection(['about','experience','research','projects'].includes(initial) ? initial : 'about');
 });
 </script>
 
