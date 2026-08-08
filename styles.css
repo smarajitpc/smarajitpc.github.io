@@ -558,3 +558,36 @@ footer {
   .timeline::before { left: 14px; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
 }
+
+/* Tabs UI */
+.tabs-nav {
+  display: flex;
+  gap: 8px;
+  background: transparent;
+  margin: 0 -24px 28px;
+  padding: 12px 24px;
+  overflow-x: auto;
+}
+.tab-btn {
+  background: var(--grey-50);
+  border: 1px solid var(--grey-100);
+  color: var(--grey-700);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.tab-btn.active {
+  background: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
+}
+
+/* Ensure sections are hidden/shown by JS; default to visible for no-JS fallback */
+#about, #experience, #education, #research, #projects {
+  display: block;
+}
+
+@media (min-width: 0px) {
+  /* mobile: keep layout same */
+}
