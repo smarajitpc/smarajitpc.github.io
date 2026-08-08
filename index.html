@@ -28,13 +28,14 @@
 <!-- HERO removed; content moved into About section -->
  
 <!-- ABOUT -->
-<section id="about">
+<section id="about" class="particle-section">
+  <canvas class="particle-bg" aria-hidden="true"></canvas>
   <div class="container">
     <div class="hero-inner">
       <div class="hero-text">
         
         <h1 class="hero-name">Smarajit<br />Paul Choudhury</h1>
-        <p class="hero-role">Senior Economics Analyst · UCB MFE '28</p>
+        <p class="hero-role">Senior Economics Analyst @ Mastercard<br />Master of Financial Engineering at UC Berkeley</p>
         <div class="hero-location">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           New York City Metropolitan Area
@@ -56,7 +57,7 @@
       generate research and insights into consumer behavior, business resilience, and macroeconomic dynamics.
     </p>
     <p class="about-text" style="margin-top:16px;">
-      Alongside this role, I am pursuing a Master's in Financial Engineering at UC Berkeley's Haas School of Business,
+      Alongside this role, I am pursuing a Master of Financial Engineering at UC Berkeley's Haas School of Business,
       deepening my quantitative toolkit through coursework in data science, stochastic calculus, and fixed income, sharpening
       my ability to model complex financial and economic systems with rigor.
     </p>
@@ -103,10 +104,21 @@
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience">
+<section id="experience" class="particle-section section-collapsible">
+  <canvas class="particle-bg" aria-hidden="true"></canvas>
   <div class="container">
-    <p class="section-label">Experience</p>
-    <h2 class="section-title">Career at Mastercard</h2>
+    <div class="section-title-row section-title-row--tight">
+      <h2 class="section-title">Work Experience</h2>
+      <button type="button" class="section-toggle" aria-expanded="true" aria-controls="experience-collapse-body" aria-label="Collapse work experience section" data-section-name="work experience section">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+      </button>
+    </div>
+    <div class="section-collapse-wrap" id="experience-collapse-body">
+    <div class="section-collapse-inner">
+    <p class="timeline-hint">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9V4.5a2.5 2.5 0 0 1 5 0V9"/><path d="M14 9V7a2 2 0 0 1 4 0v6a7 7 0 0 1-14 0v-3a2 2 0 0 1 4 0"/></svg>
+      Click a bubble to expand the highlights for that role
+    </p>
     <div class="timeline">
 
       <div class="timeline-item active">
@@ -118,6 +130,14 @@
           <div class="timeline-role">Senior Economics Analyst</div>
           <div class="timeline-meta">Feb 2026 – Present · 4 mos</div>
           <div class="timeline-location">Purchase, New York, United States · On-site</div>
+          <div class="timeline-details-wrap">
+            <ul class="timeline-details">
+              <li>Relocated to the US to work more closely with the team and clients, leading initiatives such as those supporting small businesses.</li>
+              <li>Serving as a US economist responsible for managing the team's forecasts for key economic indicators.</li>
+              <li>Leading a team of analysts performing macroeconomic research and analysis for the North America region as part of Michelle Meyer's team, delivering timely economic insights to 30+ clients through 100+ C-suite presentations.</li>
+              <li>Advising clients using proprietary economic insights and near real-time measures, built on macroeconomic data through advanced time-series modelling approaches.</li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -130,18 +150,16 @@
           <div class="timeline-role">Senior Economics Analyst</div>
           <div class="timeline-meta">Sep 2023 – Feb 2026 · 2 yrs 6 mos</div>
           <div class="timeline-location">Gurugram, Haryana, India · On-site</div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"/></svg>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-company">Mastercard</div>
-          <div class="timeline-role">Economics Analyst</div>
-          <div class="timeline-meta">Mar 2023 – Sep 2023 · 7 mos</div>
-          <div class="timeline-location">Gurugram, Haryana, India · Hybrid</div>
+          <div class="timeline-details-wrap">
+            <ul class="timeline-details">
+              <li>Consistently rated within the top 10% of analysts in the firm and promoted twice in less than 3 years for exceptional project and firm-wide performance.</li>
+              <li>Built econometric models for recession-monitoring, interest-rate sensitivity, and consumer-spending simulation using multivariate time-series modelling, broadening Mastercard's analytical capabilities.</li>
+              <li>Built a suite of analytical products to spotlight small and medium business performance for the US, resulting in a potential revenue opportunity of $2-3Mn.</li>
+              <li>Co-authored 9 blogs showcasing our differentiated measurement and analysis capabilities using high-frequency, hyper-local data, e.g. Impact of a Golf Tournament, Consumer Spending and the Labor Market.</li>
+              <li>Collaborated with researchers from the World Bank and NUS Singapore on a research paper studying the consumer spending impact of hurricanes, analyzing data from over 7.5Mn merchants for publication.</li>
+              <li>Mentored over 10 analysts on the team on topics such as Big Data, Data Science, Time Series Modelling, and Econometric Modelling.</li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -152,8 +170,14 @@
         <div class="timeline-content">
           <div class="timeline-company">Mastercard</div>
           <div class="timeline-role">Consultant</div>
-          <div class="timeline-meta">Feb 2022 – Mar 2023 · 1 yr 2 mos</div>
+          <div class="timeline-meta">Feb 2022 – Sep 2023 · 1 yr 7 mos</div>
           <div class="timeline-location">Gurugram, Haryana, India</div>
+          <div class="timeline-details-wrap">
+            <ul class="timeline-details">
+              <li>Led the analytics practice for the Asia-Pacific region, helping deliver projects to over 60 C-suite clients across business verticals like Retail, eCommerce, Travel, and Banking.</li>
+              <li>Managed the migration of the team's tech stack to an automated pipeline leveraging open-source tools like R and Python, resulting in over 80% improvement in efficiency and quality.</li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -166,44 +190,94 @@
           <div class="timeline-role">Associate Analyst</div>
           <div class="timeline-meta">Aug 2020 – Feb 2022 · 1 yr 7 mos</div>
           <div class="timeline-location">Gurugram, Haryana, India</div>
+          <div class="timeline-details-wrap">
+            <ul class="timeline-details">
+              <li>Built and managed segmentation-based panel models for over 50Mn consumers using unsupervised clustering techniques, to flesh out differentiated spending patterns across consumer personas.</li>
+              <li>Contributed towards the development of a real-time news extraction application capable of analyzing near real-time feeds, with over 1,000 articles from 300 sources analyzed daily using NLP models, for internal stakeholders.</li>
+            </ul>
+          </div>
         </div>
       </div>
 
+    </div>
+    </div>
     </div>
   </div>
 </section>
 
 <!-- EDUCATION -->
-<section id="education">
+<section id="education" class="particle-section section-collapsible">
+  <canvas class="particle-bg" aria-hidden="true"></canvas>
   <div class="container">
-    <p class="section-label">Education</p>
-    <h2 class="section-title">Academic Background</h2>
-    <div class="edu-grid">
+    <div class="section-title-row section-title-row--tight">
+      <h2 class="section-title">Academic Background</h2>
+      <button type="button" class="section-toggle" aria-expanded="true" aria-controls="education-collapse-body" aria-label="Collapse academic background section" data-section-name="academic background section">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+      </button>
+    </div>
+    <div class="section-collapse-wrap" id="education-collapse-body">
+    <div class="section-collapse-inner">
+    <p class="timeline-hint">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9V4.5a2.5 2.5 0 0 1 5 0V9"/><path d="M14 9V7a2 2 0 0 1 4 0v6a7 7 0 0 1-14 0v-3a2 2 0 0 1 4 0"/></svg>
+      Click a bubble to expand the highlights for that program
+    </p>
+    <div class="timeline">
 
-      <div class="edu-card">
-        <div class="edu-degree">Master's in Financial Engineering</div>
-        <div class="edu-school">UC Berkeley, Haas School of Business</div>
-        <div class="edu-years">Mar 2026 – Mar 2028</div>
-        <p class="edu-note">Pursuing graduate studies in Financial Engineering and Quantitative Finance alongside my work at the Mastercard Economics Institute — deepening skills in data-driven modeling and quantitative finance applications.</p>
-        <span class="badge">In Progress</span>
+      <div class="timeline-item active">
+        <div class="timeline-dot">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-company">UC Berkeley, Haas School of Business</div>
+          <div class="timeline-role">Master of Financial Engineering</div>
+          <div class="timeline-meta">Mar 2026 – Mar 2028 · In Progress</div>
+          <div class="timeline-details-wrap">
+            <ul class="timeline-details">
+              <li>Pursuing graduate studies in Financial Engineering and Quantitative Finance alongside my work at the Mastercard Economics Institute — deepening skills in data-driven modeling and quantitative finance applications.</li>
+              <li>Courses: Empirical Methods in Finance, Introduction to Stochastic Calculus, Fixed Income Markets, Financial Data Science, Financial Risk Measurement and Management, Asset-Backed Security Markets, Deep Learning and Applications.</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
-      <div class="edu-card">
-        <div class="edu-degree">Integrated Dual Degree — Engineering Physics</div>
-        <div class="edu-school">IIT (BHU) Varanasi</div>
-        <div class="edu-years">2015 – 2020</div>
-        <p class="edu-note">Masters researcher at the Laboratory of Sustainable Materials for Translational Research, Department of Physics. Secretary, Western Music Club (2017–18).</p>
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"/></svg>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-company">IIT (BHU) Varanasi</div>
+          <div class="timeline-role">Integrated Dual Degree — Engineering Physics</div>
+          <div class="timeline-meta">2015 – 2020</div>
+          <div class="timeline-details-wrap">
+            <ul class="timeline-details">
+              <li>Co-authored a research paper on computational modeling of nanomaterials with carbon quantum dots, as a masters researcher at the Biophysics &amp; Nanotechnology Lab.</li>
+              <li>Secretary, Western Music Club (2017–18).</li>
+              <li>Awards: Certificate of Merit (IIT BHU), for significant contribution in the field of fostering extracurricular activities.</li>
+              <li>Courses: Computer Programming (Python, C++), Linear Algebra, Vector Calculus, Mathematical Methods, Optimization, Time Series Analysis, Biophysics.</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
+    </div>
+    </div>
     </div>
   </div>
 </section>
 
 <!-- RESEARCH -->
-<section id="research">
+<section id="research" class="particle-section section-collapsible">
+  <canvas class="particle-bg" aria-hidden="true"></canvas>
   <div class="container">
     <p class="section-label">Research &amp; Publications</p>
-    <h2 class="section-title">Selected Work</h2>
+    <div class="section-title-row">
+      <h2 class="section-title">Selected Work</h2>
+      <button type="button" class="section-toggle" aria-expanded="true" aria-controls="research-collapse-body" aria-label="Collapse selected work section" data-section-name="selected work section">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+      </button>
+    </div>
+    <div class="section-collapse-wrap" id="research-collapse-body">
+    <div class="section-collapse-inner">
     <div class="research-grid">
 
       <div class="research-card">
@@ -239,14 +313,24 @@
       </div>
 
     </div>
+    </div>
+    </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
+<section id="projects" class="particle-section section-collapsible">
+  <canvas class="particle-bg" aria-hidden="true"></canvas>
   <div class="container">
     <p class="section-label">Projects</p>
-    <h2 class="section-title">Personal Work</h2>
+    <div class="section-title-row">
+      <h2 class="section-title">Personal Work</h2>
+      <button type="button" class="section-toggle" aria-expanded="true" aria-controls="projects-collapse-body" aria-label="Collapse personal work section" data-section-name="personal work section">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+      </button>
+    </div>
+    <div class="section-collapse-wrap" id="projects-collapse-body">
+    <div class="section-collapse-inner">
     <div class="projects-grid">
 
       <div class="project-card coming-soon">
@@ -288,6 +372,8 @@
       </div>
 
     </div>
+    </div>
+    </div>
   </div>
 </section>
 
@@ -314,48 +400,7 @@
   </div>
 </footer>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const navLinks = document.querySelectorAll('.nav-links a');
-  const sections = {
-    about: document.getElementById('about'),
-    experience: document.getElementById('experience'),
-    education: document.getElementById('education'),
-    research: document.getElementById('research'),
-    projects: document.getElementById('projects')
-  };
-
-  function showSection(key) {
-    Object.keys(sections).forEach(k => {
-      const el = sections[k];
-      if (!el) return;
-      if (key === 'experience') {
-        el.style.display = (k === 'experience' || k === 'education') ? 'block' : 'none';
-      } else {
-        el.style.display = (k === key) ? 'block' : 'none';
-      }
-    });
-    history.replaceState(null, '', '#' + key);
-  }
-
-  navLinks.forEach(a => {
-    a.addEventListener('click', function (e) {
-      const href = this.getAttribute('href') || '';
-      if (!href.startsWith('#')) return; // external links behave normally
-      e.preventDefault();
-      const key = href.replace('#', '');
-      if (['about','experience','research','projects'].includes(key)) showSection(key);
-      // scroll to top of section container for accessibility
-      const el = document.getElementById(key);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
-
-  // initial view from hash
-  const initial = (location.hash || '').replace('#','');
-  showSection(['about','experience','research','projects'].includes(initial) ? initial : 'about');
-});
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
