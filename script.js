@@ -1,5 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
   const navLinks = document.querySelectorAll('.nav-links a');
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinksList = document.querySelector('.nav-links');
+
+  if (navToggle && navLinksList) {
+    navToggle.addEventListener('click', () => {
+      const open = navLinksList.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(open));
+    });
+  }
+
   const sections = {
     about: document.getElementById('about'),
     experience: document.getElementById('experience'),
@@ -31,6 +41,11 @@ document.addEventListener('DOMContentLoaded', function () {
       // scroll to top of section container for accessibility
       const el = document.getElementById(key);
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // close the mobile menu after navigating
+      if (navLinksList && navLinksList.classList.contains('open')) {
+        navLinksList.classList.remove('open');
+        if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+      }
     });
   });
 
