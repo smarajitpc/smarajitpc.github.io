@@ -167,7 +167,7 @@ section + section { border-top: 1px solid var(--grey-100); }
   font-size: 18px;
   color: var(--grey-700);
   line-height: 1.8;
-  max-width: 660px;
+  max-width: 100%;
 }
 .skills-grid {
   display: block;
