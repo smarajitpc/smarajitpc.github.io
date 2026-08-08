@@ -170,10 +170,19 @@ section + section { border-top: 1px solid var(--grey-100); }
   max-width: 660px;
 }
 .skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  display: block;
   margin-top: 28px;
+}
+.skills-group {
+  margin-bottom: 12px;
+}
+.skill-heading {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 .skill-tag {
   background: var(--grey-100);
@@ -182,6 +191,9 @@ section + section { border-top: 1px solid var(--grey-100); }
   font-weight: 500;
   padding: 6px 14px;
   border-radius: 100px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  display: inline-block;
 }
 
 .timeline { position: relative; }
