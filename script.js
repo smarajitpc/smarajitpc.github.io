@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     about: document.getElementById('about'),
     experience: document.getElementById('experience'),
     education: document.getElementById('education'),
+    certifications: document.getElementById('certifications'),
     research: document.getElementById('research'),
     projects: document.getElementById('projects')
   };
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const el = sections[k];
       if (!el) return;
       if (key === 'experience') {
-        el.style.display = (k === 'experience' || k === 'education') ? 'block' : 'none';
+        el.style.display = (k === 'experience' || k === 'education' || k === 'certifications') ? 'block' : 'none';
       } else {
         el.style.display = (k === key) ? 'block' : 'none';
       }
@@ -201,8 +202,11 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.particle-section').forEach(initParticleBackground);
 
   // Section collapse/expand (e.g. Work Experience, Education, Research, Projects)
+  // Prefer the nearest subsection wrapper (e.g. Academic vs. Mastercard Reports
+  // within Research) so each toggles independently; otherwise fall back to the
+  // whole section.
   document.querySelectorAll('.section-toggle').forEach(btn => {
-    const collapsible = btn.closest('.section-collapsible');
+    const collapsible = btn.closest('.subsection-collapsible') || btn.closest('.section-collapsible');
     if (!collapsible) return;
     const name = btn.dataset.sectionName || 'section';
     btn.addEventListener('click', () => {
