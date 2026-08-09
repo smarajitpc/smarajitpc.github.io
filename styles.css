@@ -619,7 +619,7 @@ section + section { border-top: 1px solid var(--grey-100); }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 380px));
   gap: 20px;
 }
 .project-card {

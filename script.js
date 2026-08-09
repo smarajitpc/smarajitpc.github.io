@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', function () {
     education: document.getElementById('education'),
     certifications: document.getElementById('certifications'),
     research: document.getElementById('research'),
-    projects: document.getElementById('projects')
+    projects: document.getElementById('projects'),
+    codingSamples: document.getElementById('coding-samples')
   };
 
   function showSection(key) {
@@ -25,6 +26,8 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!el) return;
       if (key === 'experience') {
         el.style.display = (k === 'experience' || k === 'education' || k === 'certifications') ? 'block' : 'none';
+      } else if (key === 'projects') {
+        el.style.display = (k === 'projects' || k === 'codingSamples') ? 'block' : 'none';
       } else {
         el.style.display = (k === key) ? 'block' : 'none';
       }
@@ -187,15 +190,20 @@ document.addEventListener('DOMContentLoaded', function () {
       }, { threshold: 0 });
       io.observe(section);
 
-      section.addEventListener('mousemove', (e) => {
-        const rect = section.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top;
-      });
-      section.addEventListener('mouseleave', () => {
-        mouse.x = null;
-        mouse.y = null;
-      });
+      // Only wire up the repel effect for devices with a real mouse —
+      // skip it on touch/mobile so a tap/scroll doesn't scatter the dots.
+      const hasMouse = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      if (hasMouse) {
+        section.addEventListener('mousemove', (e) => {
+          const rect = section.getBoundingClientRect();
+          mouse.x = e.clientX - rect.left;
+          mouse.y = e.clientY - rect.top;
+        });
+        section.addEventListener('mouseleave', () => {
+          mouse.x = null;
+          mouse.y = null;
+        });
+      }
     }
   }
 
