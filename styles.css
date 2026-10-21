@@ -611,6 +611,10 @@ section + section { border-top: 1px solid var(--grey-100); }
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
+.research-card-link + .research-card-link {
+  margin-left: 8px;
+}
+
 .research-card-link:hover {
   background: var(--accent);
   color: var(--white);
